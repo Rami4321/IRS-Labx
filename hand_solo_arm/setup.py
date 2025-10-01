@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'hs_pick_place = hand_solo_arm.hs_pick_place:main',
         ],
     },
 )

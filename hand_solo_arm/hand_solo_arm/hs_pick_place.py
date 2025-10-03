@@ -60,18 +60,18 @@ class HSWaypointRunner(Node):
         res = res_fut.result()
         return bool(res and res.status == 4)  # 4 = STATUS_SUCCEEDED
 
-    # --- script-style sequence (no arrays, no names) --------------------------
+    # --- script-style sequence (no arrays, no names) angles are in radians--------------------------
     def run(self):
         # Waypoint 1
-        if not self._send_and_wait([0.0, 0.0, 77.0, 0.0, 0.0, 0.0]): return
+        if not self._send_and_wait([0.0, 0.75, 1.20, 0.0, 0.0, 0.0]): return
         time.sleep(10.0)
 
         # Waypoint 2
-        if not self._send_and_wait([0.0, 0.0, 12.0, 0.0, 0.0, 0.0]): return
+        if not self._send_and_wait([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]): return #screenshows had 1 or 2 degrees off, but all are meant to be 0
         time.sleep(5)
 
         # Waypoint 3
-        if not self._send_and_wait([0.0, 0.0, 77.0, 0.0, 0.0, 0.0]): return
+        if not self._send_and_wait([0.0, 0.85, 0.559, 1.134, 0.0, 0.0]): return
         time.sleep(1.5)
 
         self.get_logger().info('Sequence complete ✅')
